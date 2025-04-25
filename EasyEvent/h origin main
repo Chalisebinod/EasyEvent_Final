@@ -1,0 +1,83 @@
+[33mf26c9aa[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update adminController.js
+[33m9332c40[m Update bookingController.js
+[33m34b43de[m Update paymentController.js
+[33md444cd2[m Update venueBookingController.js
+[33m1b17a42[m Update venueOwnerController.js
+[33m12d3a74[m Update bookingSchema.js
+[33m7548b98[m Update payment.js
+[33m3cf35d1[m Update request.js
+[33m14bf64e[m Update adminRoute.js
+[33mf22a0e5[m Update bookingRoute.js
+[33m1c46497[m Update venueBookingRoute.js
+[33md7396c4[m Update venueOwnerRoutes.js
+[33m5563742[m Update VenueOwnerDashboard.jsx
+[33m83134d7[m Update Transaction.jsx
+[33m52793c5[m Update Request.jsx
+[33m7ae5463[m Update OwnerBooking.jsx
+[33m02d55c8[m Update EventDetails.jsx
+[33m4a5e82b[m Update SubmitReview.jsx
+[33m15132b6[m Update PartyPalace.jsx
+[33m7cec15e[m Add files via upload
+[33m5482cce[m Update ContinuePayment.jsx
+[33m58c88e9[m Update Booking.jsx
+[33m57adb48[m Review frontend
+[33m03271a4[m Transaction
+[33m6c89b50[m work on UI of chat
+[33ma428b88[m Venue owner profile
+[33ma793ffb[m Venue owner profile
+[33mc030941[m Update VenueProfile.jsx
+[33mbc54931[m Delete plan.txt
+[33m039d7eb[m Delete package-lock.json
+[33mc59fccc[m Delete ddsdsd
+[33m619867d[m Update venueOwnerController.js
+[33md3aea5a[m Update paymentController.js
+[33m20112a2[m Update venueOwnerRoutes.js
+[33m2585233[m Update paymentRoute.js
+[33me0b8e78[m Update App.jsx
+[33m7330d98[m Update UserLogin.jsx
+[33m5fbbac9[m Update PartyPalace.jsx
+[33m8b8e0fa[m Update ContinuePayment.jsx
+[33ma27ab0d[m Update VenueOwnerProfile.jsx
+[33m465f1cf[m Update Transaction.jsx
+[33m458ba20[m Update Request.jsx
+[33m9f5358f[m Update OwnerBooking.jsx
+[33m8a0e63c[m Update ApprovedBookingDetails.jsx
+[33m615b4dd[m Update AgreementMaker.jsx
+[33m7784d75[m user profile
+[33mbc9bf73[m work on Frontend
+[33me98a3bd[m work on the frontend
+[33m26f2bd1[m Add files via upload
+[33mb0bf57e[m Delete frontend/EasyEvent/src/components directory
+[33ma8ee20e[m Delete node_modules directory
+[33m225937e[m Delete backend/node_modules directory
+[33m6f3fb03[m Update package.json
+[33m31bbf8d[m Update package-lock.json
+[33m4c774c8[m Update app.js
+[33mf69c89a[m Update Booking.jsx
+[33m1f8c43d[m Update App.jsx
+[33m8a2967a[m Add files via upload
+[33m4aaf30f[m Add files via upload
+[33me5bb03b[m Add files via upload
+[33m5a3d5ca[m Add files via upload
+[33mb9d2db3[m Add files via upload
+[33m249b3fd[m Delete venueBookingController.js
+[33m1d8dbc7[m Delete userAuth.js
+[33m69755ea[m Delete hallController.js
+[33mefd837c[m Delete foodController.js
+[33m1c3b94a[m Delete agreementController.js
+[33mdad2086[m Delete bookingController.js
+[33md8d7ee1[m Add files via upload
+[33m6bc06ef[m work more on chatting system
+[33m87c2aea[m payment system
+[33mc7fcf29[m Merge pull request #4 from Chalisebinod/my-local-changes
+[33m707c6cc[m Changes in the backend and frontend for the chat system
+[33m856fdaa[m User can and venue owner can chat now
+[33m80684ad[m  chatting feature
+[33mfd47f1e[m  update frontend(venueowner and user
+[33md641cd7[m  hall and booking management
+[33m86047f7[m  Frotend for Admin Dashboard
+[33m59664da[m kyc verification
+[33m3a6c85f[m add notification feature
+[33m06df4e1[m KYC Verification
+[33m1008663[m  forget password
+[33m85ea2ca[m added backend and frontend
