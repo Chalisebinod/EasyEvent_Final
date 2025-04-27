@@ -296,7 +296,7 @@ const Booking = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Top Content Area */}
-      <div className="flex-1 bg-gradient-to-br from-blue-50 to-gray-100">
+      <div className="flex-1 bg-white">
         <Navbar />
         <ToastContainer />
         <div className="max-w-screen-xl mx-auto bg-white shadow-lg rounded-xl p-10 my-8">

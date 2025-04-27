@@ -299,7 +299,7 @@ const DashboardBefore = () => {
 </header>
       
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-2 mt-20">
+      <main className="container mx-auto px-4 py-2 mt-20 bg">
         {/* Search and Sort Section */}
         <div className="mb-8 bg-white rounded-lg shadow-md p-4">
           <div className="flex flex-col md:flex-row gap-4 items-center">

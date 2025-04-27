@@ -41,19 +41,43 @@ exports.addFood = async (req, res) => {
 };
 
 // Get all Food items for a given venue
+
+// exports.getFoodsByVenue = async (req, res) => {
+//   try {
+//     const { venueId } = req.params;
+//     const foods = await Food.find({ venue: venueId });
+//     if (!foods || foods.length === 0) {
+//       return res.status(404).json({ message: "No foods found for this venue" });
+//     }
+//     return res.status(200).json({ foods });
+//   } catch (error) {
+//     console.error("Error fetching foods:", error);
+//     return res.status(500).json({ message: "Internal Server Error" });
+//   }
+// };
+
 exports.getFoodsByVenue = async (req, res) => {
   try {
     const { venueId } = req.params;
+
+    // Check if venueId is provided and is a valid MongoDB ObjectId
+    if (!venueId || venueId === "null" || !venueId.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ message: "Invalid or missing venue ID" });
+    }
+
     const foods = await Food.find({ venue: venueId });
+
     if (!foods || foods.length === 0) {
       return res.status(404).json({ message: "No foods found for this venue" });
     }
+
     return res.status(200).json({ foods });
   } catch (error) {
     console.error("Error fetching foods:", error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 // Update an existing Food item
 exports.updateFood = async (req, res) => {

@@ -20,9 +20,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AgreementMaker = () => {
-  // --------------------------------------------------------------------------
-  // STATE
-  // --------------------------------------------------------------------------
+
   const [tabValue, setTabValue] = useState(0); // 0=Terms, 1=Rules, 2=Cancellation
   const [templates, setTemplates] = useState({
     terms: [],
@@ -38,16 +36,12 @@ const AgreementMaker = () => {
   const [editingTemplate, setEditingTemplate] = useState(null);
   const [editContent, setEditContent] = useState("");
 
-  // --------------------------------------------------------------------------
-  // EFFECTS
-  // --------------------------------------------------------------------------
+ 
   useEffect(() => {
     fetchTemplates();
   }, []);
 
-  // --------------------------------------------------------------------------
-  // HELPER FUNCTIONS
-  // --------------------------------------------------------------------------
+
   const getVenueId = () => localStorage.getItem("venueId");
   const getAuthHeaders = () => ({
     headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` },
@@ -66,9 +60,7 @@ const AgreementMaker = () => {
   // Back-end type strings
   const typeMap = ["terms", "rules", "cancellation"];
 
-  // --------------------------------------------------------------------------
-  // API CALLS
-  // --------------------------------------------------------------------------
+
   const fetchTemplates = async () => {
     try {
       const response = await axios.get(
@@ -201,11 +193,9 @@ const AgreementMaker = () => {
     }
   };
 
-  // --------------------------------------------------------------------------
-  // RENDER
-  // --------------------------------------------------------------------------
+
   return (
-    <div className="min-h-screen flex bg-gray-100">
+    <div className="min-h-screen flex bg-white">
       <VenueSidebar />
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Paper elevation={3} sx={{ p: 4 }}>

@@ -419,40 +419,41 @@ const accessToken = localStorage.getItem("access_token");
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Halls Info */}
         <div className="bg-white p-6 rounded-xl border border-orange-100 shadow-sm">
-          <h4 className="text-xl font-bold text-gray-900 mb-4">Halls Info</h4>
-          <div className="space-y-3 text-gray-700">
-            <p>No. of halls: {halls.length}</p>
-            <p>
-              Capacities:{" "}
-              {halls.length > 0
-                ? halls.map((hall) => hall.capacity).join(" & ")
-                : "N/A"}
-            </p>
-            <p>Per Plate: {pricePerPlate ? `Rs. ${pricePerPlate}` : "N/A"}</p>
-            {halls.length > 0 && (
-              <div className="mt-4">
-                <label
-                  htmlFor="hall-select"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Select Hall:
-                </label>
-                <select
-                  id="hall-select"
-                  value={selectedHall}
-                  onChange={handleHallSelect}
-                  className="w-full px-4 py-2 border border-orange-200 rounded-lg focus:ring-2 focus:ring-orange-500"
-                >
-                  {halls.map((hall) => (
-                    <option key={hall._id} value={hall._id}>
-                      {hall.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-          </div>
-        </div>
+  <h4 className="text-xl font-bold text-gray-900 mb-4">Halls Info</h4>
+  <div className="space-y-3 text-gray-700">
+    <p>No. of halls: {halls.length}</p>
+    <p>
+      Capacities:{" "}
+      {selectedHall
+        ? halls.find((hall) => hall._id === selectedHall)?.capacity || "N/A"
+        : "N/A"}
+    </p>
+    <p>Per Plate: {pricePerPlate ? `Rs. ${pricePerPlate}` : "N/A"}</p>
+    {halls.length > 0 && (
+      <div className="mt-4">
+        <label
+          htmlFor="hall-select"
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
+          Select Hall:
+        </label>
+        <select
+          id="hall-select"
+          value={selectedHall}
+          onChange={handleHallSelect}
+          className="w-full px-4 py-2 border border-orange-200 rounded-lg focus:ring-2 focus:ring-orange-500"
+        >
+          {halls.map((hall) => (
+            <option key={hall._id} value={hall._id}>
+              {hall.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    )}
+  </div>
+</div>
+
 
         {/* Payment Policy */}
         <div className="bg-white p-6 rounded-xl border border-orange-100 shadow-sm">

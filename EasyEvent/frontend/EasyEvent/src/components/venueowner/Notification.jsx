@@ -101,7 +101,7 @@ const Notification = () => {
       <VenueSidebar />
 
       {/* Main Content Section */}
-      <div className="flex-1 p-8 bg-gray-100">
+      <div className="flex-1 p-8 bg-white">
         <div className="w-full mx-auto bg-white p-8 rounded-xl shadow-xl">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-8 border-b pb-4">
             <h2 className="text-3xl font-bold text-gray-800 flex items-center">

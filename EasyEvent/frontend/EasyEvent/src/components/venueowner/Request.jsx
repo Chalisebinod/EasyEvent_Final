@@ -121,7 +121,7 @@ function Request() {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
+    <div className="min-h-screen flex bg-white">
       <VenueSidebar />
       <div className="flex-1 p-8">
         <div className="max-w-7xl mx-auto">

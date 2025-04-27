@@ -261,7 +261,7 @@ const OwnerBooking = () => {
   );
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-white">
       <VenueSidebar />
       <div className="flex-grow p-6">
         <div className="container mx-auto">
@@ -320,12 +320,7 @@ const OwnerBooking = () => {
               <p className="text-gray-600">
                 You don't have any approved bookings at the moment. New bookings will appear here once they are confirmed.
               </p>
-              <button
-                onClick={handleOpenCreate}
-                className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
-              >
-                Create a New Booking
-              </button>
+            
             </div>
           )}
 

@@ -337,7 +337,7 @@ const Profile = () => {
   {!validateContactNumber(updatedProfile.contact_number) &&
     updatedProfile.contact_number && (
       <p className="text-red-600 text-xs mt-1">
-        Contact number must be a valid Nepali phone number (e.g., +97798XXXXXXXX or 98XXXXXXXX).
+        Contact number must be a valid Nepali phone number (e.g., 97XXXXXXXX or 98XXXXXXXX).
       </p>
     )}
 </div>
