@@ -27,9 +27,9 @@ import VenueSidebar from "../VenueSidebar";
 const FoodManagement = () => {
   const [activeTab, setActiveTab] = useState(0);
   const accessToken = localStorage.getItem("access_token");
-  const venueId = localStorage.getItem("venueID");
+  const venueId = localStorage.getItem("venueId");
 
-  /* ------------------ Food Items Management ------------------ */
+ 
   const [foods, setFoods] = useState([]);
   const [loadingFoods, setLoadingFoods] = useState(false);
 
