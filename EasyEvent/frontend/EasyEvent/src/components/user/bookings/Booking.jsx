@@ -339,14 +339,14 @@ const Booking = () => {
                   transition={{ duration: 0.5 }}
                   className="bg-white shadow-2xl rounded-2xl p-6 md:p-10"
                 >
-                  <div className="flex justify-center items-center mb-8">
+                  {/* <div className="flex justify-center items-center mb-8">
                     <div className="relative">
                       <p className="text-4xl md:text-3xl font-semibold text-transparent bg-clip-text bg-black">
                         Book Your Event
                       </p>
                       <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-orange-700 rounded-full"></div>
                     </div>
-                  </div>
+                  </div> */}
                   
                   <form onSubmit={handleSubmit} className="space-y-16">
                     {/* Hall Selection */}
@@ -445,7 +445,7 @@ const Booking = () => {
                               Included Food Items
                             </h2>
                           </div>
-                          <div className="bg-green-50 p-6 rounded-xl border border-green-100">
+                          <div className="bg-white p-6 rounded-xl border border-green-100">
                             <div className="flex flex-wrap gap-3">
                               {selectedHall.includedFood.map((food) => (
                                 <div
@@ -471,34 +471,56 @@ const Booking = () => {
                           Event Details
                         </h2>
                       </div>
-                      <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                      <div className="bg-white p-6 rounded-xl border border-blue-100">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                           <div>
-                            <label className="block text-gray-700 font-medium mb-2">Event Type</label>
-                            <select
-                              value={showCustomEventType ? "Other" : eventType}
-                              onChange={handleEventTypeChange}
-                              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 bg-white"
-                            >
-                              <option value="">Select Event Type</option>
-                              <option value="Marriage">Marriage</option>
-                              <option value="Birthday">Birthday</option>
-                              <option value="Corporate">Corporate</option>
-                              <option value="Other">Other</option>
-                            </select>
-                            {showCustomEventType && (
-                              <input
-                                type="text"
-                                placeholder="Enter custom event type"
-                                value={customEventType}
-                                onChange={(e) => {
-                                  setCustomEventType(e.target.value);
-                                  setEventType(e.target.value);
-                                }}
-                                className="mt-3 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
-                              />
-                            )}
-                          </div>
+  <label className="block text-gray-700 font-medium mb-2">Event Type</label>
+  <select
+    value={showCustomEventType ? "Other" : eventType}
+    onChange={handleEventTypeChange}
+    className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 bg-white"
+  >
+    <option value="">Select Event Type</option>
+    <option value="Marriage">Marriage</option>
+    <option value="Birthday">Birthday</option>
+    <option value="Corporate">Corporate</option>
+    <option value="Other">Other</option>
+  </select>
+  {showCustomEventType && (
+    <div className="mt-3">
+      <label className="block text-gray-700 font-medium mb-2">
+        Custom Event Type
+      </label>
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Enter custom event type"
+          value={customEventType}
+          onChange={(e) => {
+            setCustomEventType(e.target.value);
+            setEventType(e.target.value);
+          }}
+          className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+        />
+        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+          <svg
+            className="h-5 w-5 text-gray-400"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  )}
+</div>
                           <div>
                             <label className="block text-gray-700 font-medium mb-2">
                               Event Date
@@ -546,76 +568,92 @@ const Booking = () => {
       
                     {/* Extra Food Selection */}
                     <section>
-                      <div className="flex items-center mb-6">
-                        <div className="bg-orange-100 p-2 rounded-lg mr-3">
-                          <FaUtensils className="text-orange-500 text-xl" />
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-                          Additional Food Items
-                        </h2>
-                      </div>
-                      
-                      <div className="bg-white p-6 rounded-xl border border-orange-100">
-                        <div className="flex space-x-4 mb-6">
-                          {["All", "Veg", "Non Veg"].map((type) => (
-                            <motion.button
-                              key={type}
-                              whileHover={{ y: -2 }}
-                              whileTap={{ y: 0 }}
-                              type="button"
-                              onClick={() => setSelectedFoodType(type)}
-                              className={`px-6 py-2 rounded-full transition-all duration-300 shadow-sm ${
-                                selectedFoodType === type
-                                  ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium"
-                                  : "bg-white text-gray-700 hover:bg-gray-100"
-                              }`}
-                            >
-                              {type}
-                            </motion.button>
-                          ))}
-                        </div>
-                        
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                          {filteredFoods && filteredFoods.length > 0 ? (
-                            filteredFoods.map((food) => (
-                              <motion.div
-                                key={food._id}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.98 }}
-                                className={`border rounded-xl p-4 cursor-pointer transition-all duration-300 ${
-                                  selectedFoods.includes(food._id)
-                                    ? "border-orange-500 bg-orange-50 shadow-md"
-                                    : "border-gray-200 hover:border-orange-300 hover:shadow-md"
-                                }`}
-                                onClick={() => toggleFoodSelection(food._id)}
-                              >
-                                <div className="flex items-center justify-between mb-2">
-                                  <p className="font-medium">{food.name}</p>
-                                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                                    selectedFoods.includes(food._id) 
-                                      ? "border-orange-500 bg-orange-500" 
-                                      : "border-gray-300"
-                                  }`}>
-                                    {selectedFoods.includes(food._id) && (
-                                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                      </svg>
-                                    )}
-                                  </div>
-                                </div>
-                                <div className="bg-green-600 p-50 rounded-lg px-3 py-2 text-center">
-                                  <p className="text-sm font-semibold text-white">Rs. {food.price}</p>
-                                </div>
-                              </motion.div>
-                            ))
-                          ) : (
-                            <div className="col-span-full text-center py-10 text-gray-500">
-                              No additional food items available.
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </section>
+  <div className="flex items-center mb-6">
+    <div className="bg-orange-100 p-2 rounded-lg mr-3">
+      <FaUtensils className="text-orange-500 text-xl" />
+    </div>
+    <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+      Additional Food Items
+    </h2>
+  </div>
+
+  <div className="bg-white p-6 rounded-xl border border-orange-100 shadow-sm">
+    {/* Filter Buttons */}
+    <div className="flex gap-3 mb-6">
+      {["All", "Veg", "Non Veg"].map((type) => (
+        <motion.button
+          key={type}
+          whileHover={{ y: -2 }}
+          whileTap={{ y: 0 }}
+          type="button"
+          onClick={() => setSelectedFoodType(type)}
+          className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            selectedFoodType === type
+              ? "bg-orange-500 text-white shadow-md"
+              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+          }`}
+        >
+          {type}
+        </motion.button>
+      ))}
+    </div>
+
+    {/* Food Grid */}
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {filteredFoods && filteredFoods.length > 0 ? (
+        filteredFoods.map((food) => (
+          <motion.div
+            key={food._id}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className={`border rounded-xl p-4 cursor-pointer transition-all duration-300 ${
+              selectedFoods.includes(food._id)
+                ? "border-orange-500 bg-orange-50 shadow-md"
+                : "border-gray-200 hover:border-orange-300 hover:shadow-sm"
+            }`}
+            onClick={() => toggleFoodSelection(food._id)}
+          >
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-medium text-gray-800">{food.name}</p>
+              <div
+                className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                  selectedFoods.includes(food._id)
+                    ? "border-orange-500 bg-orange-500"
+                    : "border-gray-300"
+                }`}
+              >
+                {selectedFoods.includes(food._id) && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-3 w-3 text-white"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </div>
+            </div>
+
+            <div className="mt-10 bg-green-600 px-2 py-2 rounded-md text-white text-sm font-medium text-center hover:bg-green-700 transition-colors">
+              <p>Rs. {food.price}</p>
+            </div>
+          </motion.div>
+        ))
+      ) : (
+        <div className="col-span-full text-center py-10 text-gray-500">
+          No additional food items available.
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+
   {/* Additional Services */}
   <section>
                  
@@ -630,7 +668,7 @@ const Booking = () => {
                     </h2>
                   </div>
                   
-                  <div className="bg-yellow-50 p-6 rounded-xl border border-yellow-100">
+                  <div className="bg-white p-6 rounded-xl border border-yellow-100">
                     {additionalServices.map((service, index) => (
                       <motion.div 
                         key={index}
@@ -723,7 +761,7 @@ const Booking = () => {
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                     {/* Official Pricing */}
-                    <div className="bg-indigo-50 p-6 rounded-xl border border-indigo-100 shadow-sm transform transition-all duration-300 hover:shadow-md">
+                    <div className="bg-white p-6 rounded-xl border border-indigo-100 shadow-sm transform transition-all duration-300 hover:shadow-md">
                       <h3 className="text-xl font-bold mb-5 text-indigo-700 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -790,7 +828,7 @@ const Booking = () => {
                     </div>
 
                     {/* Your Offer */}
-                    <div className="bg-orange-50 p-6 rounded-xl border border-orange-100 shadow-sm transform transition-all duration-300 hover:shadow-md">
+                    <div className="bg-white p-6 rounded-xl border border-orange-100 shadow-sm transform transition-all duration-300 hover:shadow-md">
                       <h3 className="text-xl font-bold mb-5 text-orange-700 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />

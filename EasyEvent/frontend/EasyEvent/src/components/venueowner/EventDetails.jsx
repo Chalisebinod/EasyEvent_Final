@@ -187,19 +187,19 @@
   
     if (loading) {
       return (
-        <div className="min-h-screen flex bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="min-h-screen flex bg-white">
           <VenueSidebar />
           <div className="flex-1 p-10 flex flex-col items-center justify-center w-full">
             <div className="animate-spin rounded-full h-16 w-16 border-4 border-t-4 border-indigo-600"></div>
             <p className="mt-6 text-xl text-indigo-700 font-medium">Loading booking details...</p>
           </div>
-        </div>
+        </div> 
       );
     }
   
     if (error || !booking) {
       return (
-        <div className="min-h-screen flex bg-gradient-to-br from-red-50 to-orange-50">
+        <div className="min-h-screen flex bg-white">
           <VenueSidebar />
           <div className="flex-1 p-10 flex flex-col items-center justify-center w-full">
             <div className="bg-white p-8 rounded-xl shadow-lg border border-red-200">
@@ -220,7 +220,7 @@
     }
   
     return (
-      <div className="min-h-screen flex bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="min-h-screen flex bg-white">
         <VenueSidebar />
         <div className="flex-1 relative w-full">
           <ToastContainer position="top-right" />
