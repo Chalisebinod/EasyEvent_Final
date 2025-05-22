@@ -658,19 +658,32 @@ function ApprovedBookingDetails() {
                       <Divider sx={{ mb: 2 }} />
                       <Grid container spacing={2}>
                         <Grid item xs={12} md={6}>
-                          <TextField
-                            fullWidth
-                            label="Required Advance Amount"
-                            type="number"
-                            value={paymentDetails.advanceAmount}
-                            onChange={(e) =>
-                              setPaymentDetails({
-                                ...paymentDetails,
-                                advanceAmount: e.target.value,
-                              })
-                            }
-                            helperText="This amount will be required from the user to confirm the booking"
-                          />
+                       <TextField
+  fullWidth
+  label="Required Advance Amount"
+  type="number"
+  value={paymentDetails.advanceAmount}
+  onChange={(e) => {
+    const advanceAmount = parseFloat(e.target.value);
+    const totalCost = booking?.pricing_summary?.total_cost || 0;
+    const maxAdvance = totalCost * 0.5;
+
+    if (advanceAmount > maxAdvance) {
+      setPaymentDetails({ ...paymentDetails, advanceAmount: maxAdvance.toString() });
+      toast.error(`Advance amount cannot exceed 50% of the total cost (Rs. ${maxAdvance})`);
+    } else if (advanceAmount < 0) {
+      setPaymentDetails({ ...paymentDetails, advanceAmount: '0' });
+      toast.error("Advance amount cannot be negative.");
+    }
+     else {
+      setPaymentDetails({
+        ...paymentDetails,
+        advanceAmount: e.target.value,
+      });
+    }
+  }}
+  helperText="This amount will be required from the user to confirm the booking"
+/>
                         </Grid>
                         <Grid item xs={12} md={6}>
   <TextField

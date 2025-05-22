@@ -127,6 +127,7 @@ function App() {
         {/* <Route path="/user-bookings" element={<UserBookings />} /> */}
         <Route path="/user-book/:id" element={<Booking />} />
 
+
         {/* Landing Page */}
         <Route path="/" element={<LandingPage />} />
 

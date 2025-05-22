@@ -97,7 +97,7 @@ const MyBookings = () => {
                     <th className="py-3 px-4 text-left">Guests</th>
                     <th className="py-3 px-4 text-left">Total Cost</th>
                     <th className="py-3 px-4 text-left">Status</th>
-                    <th className="py-3 px-4 text-left">Payment</th>
+                    {/* <th className="py-3 px-4 text-left">Payment</th> */}
                   </tr>
                 </thead>
                 <tbody className="text-gray-700 text-sm">
@@ -122,7 +122,7 @@ const MyBookings = () => {
                         {booking.event_details.guest_count}
                       </td>
                       <td className="py-3 px-4">
-                        ${booking.pricing.total_cost}
+                        Rs: {booking.pricing.total_cost}
                       </td>
                       <td className="py-3 px-4">
                         <span
@@ -137,7 +137,7 @@ const MyBookings = () => {
                           {booking.status}
                         </span>
                       </td>
-                      <td className="py-3 px-4">
+                      {/* <td className="py-3 px-4">
                         <span
                           className={`px-2 py-1 rounded-full text-white ${
                             booking.payment_status === "Paid"
@@ -149,7 +149,7 @@ const MyBookings = () => {
                         >
                           {booking.payment_status}
                         </span>
-                      </td>
+                      </td> */}
                     </tr>
                   ))}
                 </tbody>

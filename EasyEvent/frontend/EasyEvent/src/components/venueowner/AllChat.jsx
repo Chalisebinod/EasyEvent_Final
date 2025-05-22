@@ -397,12 +397,12 @@ const AllChat = () => {
                   placeholder="Type a message..."
                   className="flex-1 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
-                <button className="text-gray-600 hover:text-gray-800">
+                {/* <button className="text-gray-600 hover:text-gray-800">
                   <FiImage size={20} />
                 </button>
                 <button className="text-gray-600 hover:text-gray-800">
                   <FiPaperclip size={20} />
-                </button>
+                </button> */}
                 <button
                   onClick={handleSendMessage}
                   className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"

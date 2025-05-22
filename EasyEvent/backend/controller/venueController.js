@@ -58,7 +58,7 @@ const getAllVenuesForUser = async (req, res) => {
 const createVenue = async (req, res) => {
   console.log("Creating venue...");
   try {
-    const venueOwnerId = req.user.id; // Extract venue owner ID from auth middleware
+    const venueOwnerId = req.user.id; 
 
     // Extracting fields from request body
     const {

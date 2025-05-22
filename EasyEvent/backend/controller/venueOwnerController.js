@@ -27,7 +27,7 @@ async function checkKycStatus(req, res) {
 
     // Determine if the KYC is verified.
     // Here we expect verificationStatus to be "approved" (or "verified" if you prefer)
-    // and that both citizenshipFront and citizenshipBack files exist.
+
     const isKYCVerified =
       kycRecord.verificationStatus.toLowerCase() === "approved" &&
       kycRecord.citizenshipFront &&

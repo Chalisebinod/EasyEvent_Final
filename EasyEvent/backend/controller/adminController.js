@@ -15,7 +15,7 @@ async function getAllUsers(req, res) {
       search = "",
       sort = "date",
       blockStatus = "all",
-    } = req.query; // Removed extra "S"
+    } = req.query; 
 
     // Calculate the starting index
     const startIndex = (parseInt(page) - 1) * parseInt(limit);
@@ -442,7 +442,7 @@ const getVenueOwner = async (req, res) => {
 };
 async function venueForAdmmin(req, res) {
   try {
-    const { page = 1, limit = 10, search = "", sort = "date" } = req.query; // Removed any stray characters
+    const { page = 1, limit = 10, search = "", sort = "createdAt", blockStatus = "all" } = req.query;
 
     // Calculate the starting index for pagination
     const startIndex = (parseInt(page) - 1) * parseInt(limit);
@@ -461,9 +461,17 @@ async function venueForAdmmin(req, res) {
       };
     }
 
+    if (blockStatus !== "all") {
+      query.is_blocked = blockStatus === "blocked";
+    }
+
     // Define sorting options.
-    // If sorting by date, assume a "createdAt" field exists; otherwise, sort by the specified field.
-    const sortOptions = sort === "date" ? { createdAt: -1 } : { [sort]: 1 };
+    let sortOptions = {};
+    if (sort === "createdAt") {
+      sortOptions = { createdAt: -1 }; // Sort by date, newest first
+    } else {
+      sortOptions = { name: 1 }; // Default sort by name, ascending
+    }
 
     // Get total count of venues matching the query
     const totalVenues = await Venue.countDocuments(query);

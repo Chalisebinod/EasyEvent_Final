@@ -608,7 +608,7 @@ const Booking = () => {
             whileTap={{ scale: 0.98 }}
             className={`border rounded-xl p-4 cursor-pointer transition-all duration-300 ${
               selectedFoods.includes(food._id)
-                ? "border-orange-500 bg-orange-50 shadow-md"
+                ? "border-orange-500 bg-white shadow-md"
                 : "border-gray-200 hover:border-orange-300 hover:shadow-sm"
             }`}
             onClick={() => toggleFoodSelection(food._id)}
@@ -679,7 +679,7 @@ const Booking = () => {
                       >
                         <div className="flex justify-between items-center mb-4">
                           <h3 className="font-semibold text-lg text-gray-800 flex items-center">
-                            <span className="bg-yellow-100 text-yellow-700 rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                            <span className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">
                               {index + 1}
                             </span>
                             Service {index + 1}
@@ -821,7 +821,7 @@ const Booking = () => {
                                 : 0
                             }
                             readOnly
-                            className="pl-10 w-full border border-gray-300 rounded-lg p-3 bg-indigo-100 shadow-inner text-indigo-800 font-bold"
+                            className="pl-10 w-full border border-gray-300 rounded-lg p-3 shadow-inner text-indigo-800 font-bold"
                           />
                         </div>
                       </div>
@@ -973,26 +973,26 @@ const Booking = () => {
                           {offerError}
                         </p>
                       )}
-                      <div className="mt-6 p-4 bg-orange-100 border border-orange-200 rounded-lg">
+                      <div className="mt-6 p-4  rounded-lg">
                         <div className="flex justify-between items-center mb-2">
                           <p className="text-gray-700">Final Accepted Price per Plate:</p>
-                          <p className="font-bold text-orange-700">Rs. {finalPrice.toFixed(2)}</p>
+                          <p className="font-bold">Rs. {finalPrice.toFixed(2)}</p>
                         </div>
                         <div className="flex justify-between items-center mb-2">
                           <p className="text-gray-700">Total Final Cost:</p>
-                          <p className="font-bold text-orange-700">Rs. {totalCostFinal.toFixed(2)}</p>
+                          <p className="font-bold ">Rs. {totalCostFinal.toFixed(2)}</p>
                         </div>
                         <div className="flex justify-between items-center mb-2">
                           <p className="text-gray-700 flex items-center">
                             Extra Food Cost:
                             <span className="text-xs ml-1 text-gray-500">(for selected extras)</span>
                           </p>
-                          <p className="font-bold text-orange-700">Rs. {extraFoodCost.toFixed(2)}</p>
+                          <p className="font-bold">Rs. {extraFoodCost.toFixed(2)}</p>
                         </div>
                         <div className="h-px bg-orange-200 my-3"></div>
                         <div className="flex justify-between items-center">
                           <p className="text-lg font-medium text-gray-800">Grand Total:</p>
-                          <p className="text-xl font-bold text-orange-700">Rs. {grandTotal.toFixed(2)}</p>
+                          <p className="text-xl font-bold text-green-600">Rs. {grandTotal.toFixed(2)}</p>
                         </div>
                       </div>
                     </div>

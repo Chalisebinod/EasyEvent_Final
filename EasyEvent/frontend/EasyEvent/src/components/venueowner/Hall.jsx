@@ -875,7 +875,7 @@ const Hall = () => {
                     variant="caption"
                     sx={{ display: "block", mt: 1, color: "grey.500" }}
                   >
-                    {5 - newHall.images.length} images remaining
+                    {1 - newHall.images.length} images remaining
                   </Typography>
                 </Box>
               </Grid>

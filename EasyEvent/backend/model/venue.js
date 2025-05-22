@@ -48,10 +48,10 @@ block_reason: { type: String, default: null },
   payment_policy: {
     advance_percentage: { type: Number, default: 50 },
     security_deposit: { type: Number, default: 0 },
-    refund_policy: { type: String, default: "No Refund" },
+    refund_policy: { type: String, default: "negotiable" },
     cancellation_penalty: {
       type: String,
-      default: "10% deduction if canceled within a week",
+      default: "valid reason needed",
     },
   },
   verification_status: { type: String, default: "Unverified" },

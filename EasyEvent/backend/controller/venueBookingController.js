@@ -689,7 +689,7 @@ const generateAgreementPDF = async (booking, agreement) => {
       }
       doc.moveDown(1.5);
 
-      // ----- Section 3: Signatures -----
+      
       // This page ends without digital signature instructions.
       doc.addPage();
 

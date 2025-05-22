@@ -68,9 +68,16 @@ export default function ContinuePayment() {
         );
         const { booking, payment, summary } = res.data;
         setBookingDetails({ ...booking, payment, summary });
-        console.log("Booking & payment details:", { booking, payment, summary });
+        console.log("Booking & payment details:", {
+          booking,
+          payment,
+          summary,
+        });
       } catch (error) {
-        console.error("Failed to fetch booking details:", error.response?.data || error.message);
+        console.error(
+          "Failed to fetch booking details:",
+          error.response?.data || error.message
+        );
         if (error.response && error.response.status === 401) {
           toast.error("Session expired. Please log in again.");
           localStorage.removeItem("access_token");
@@ -120,7 +127,10 @@ export default function ContinuePayment() {
         toast.error("Payment initiation failed: No payment URL received.");
       }
     } catch (error) {
-      console.error("Payment initiation failed:", error.response?.data || error.message);
+      console.error(
+        "Payment initiation failed:",
+        error.response?.data || error.message
+      );
       if (error.response && error.response.status === 401) {
         toast.error("Session expired. Please login again.");
         localStorage.removeItem("access_token");
@@ -150,7 +160,10 @@ export default function ContinuePayment() {
           toast.error("Payment verification failed.");
         }
       } catch (error) {
-        console.error("Payment verification error:", error.response?.data || error.message);
+        console.error(
+          "Payment verification error:",
+          error.response?.data || error.message
+        );
         if (error.response && error.response.status === 401) {
           toast.error("Session expired. Please login again.");
           localStorage.removeItem("access_token");
@@ -171,9 +184,13 @@ export default function ContinuePayment() {
     <>
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
         <div className="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
-          <h2 className="text-xl font-semibold text-center mb-4">Continue Payment</h2>
+          <h2 className="text-xl font-semibold text-center mb-4">
+            Continue Payment
+          </h2>
           {isLoading ? (
-            <p className="text-center text-gray-500">Loading booking details...</p>
+            <p className="text-center text-gray-500">
+              Loading booking details...
+            </p>
           ) : (
             <div className="grid grid-cols-1 gap-4">
               {paymentOptions.map((option) => (
@@ -185,7 +202,11 @@ export default function ContinuePayment() {
                   onClick={() => handlePaymentSelect(option.name)}
                   disabled={!bookingDetails} // Disable button if booking details are not loaded
                 >
-                  <img src={option.logo} alt={option.name} className="h-12 w-12 object-contain" />
+                  <img
+                    src={option.logo}
+                    alt={option.name}
+                    className="h-12 w-12 object-contain"
+                  />
                   <span className="ml-2">{option.name}</span>
                 </button>
               ))}

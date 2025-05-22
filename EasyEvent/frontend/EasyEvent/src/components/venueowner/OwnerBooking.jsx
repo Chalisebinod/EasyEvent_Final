@@ -198,7 +198,7 @@ const OwnerBooking = () => {
             </svg>
             <p className="text-gray-700">
               <span className="font-medium">Total Cost:</span>{" "}
-              <span className="font-semibold text-indigo-700">₹{booking.pricing.total_cost.toLocaleString()}</span>
+              <span className="font-semibold text-indigo-700">Rs: {booking.pricing.total_cost.toLocaleString()}</span>
             </p>
           </div>
         )}

@@ -11,12 +11,11 @@ const UserPage = () => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [blockStatus, setBlockStatus] = useState("all");
-  const [sort, setSort] = useState("date");
 
   useEffect(() => {
     fetchUsers(page);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, search, blockStatus, sort]);
+  }, [page, search, blockStatus]);
 
   const fetchUsers = async (currentPage) => {
     setLoading(true);
@@ -24,7 +23,7 @@ const UserPage = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/users?page=${currentPage}&limit=10&search=${search}&blockStatus=${blockStatus}&sort=${sort}`,
+        `http://localhost:8000/api/users?page=${currentPage}&limit=10&search=${search}&blockStatus=${blockStatus}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -105,11 +104,6 @@ const UserPage = () => {
     setPage(1);
   };
 
-  const handleSortChange = (event) => {
-    setSort(event.target.value);
-    setPage(1);
-  };
-
   return (
     <div className="flex">
       <DashboardLayout />
@@ -133,14 +127,6 @@ const UserPage = () => {
             <option value="all">All</option>
             <option value="blocked">Blocked</option>
             <option value="unblocked">Unblocked</option>
-          </select>
-          <select
-            value={sort}
-            onChange={handleSortChange}
-            className="px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="date">Sort by Date</option>
-            <option value="status">Sort by Status</option>
           </select>
         </div>
 

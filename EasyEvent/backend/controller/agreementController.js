@@ -1,5 +1,3 @@
-
-
 const { Agreement, AgreementTemplate } = require("../model/agreementSchema");
 const Booking = require("../model/bookingSchema");
 const VenueOwner = require("../model/venueOwner");
@@ -192,8 +190,6 @@ exports.deleteTemplate = async (req, res) => {
   }
 };
 
-// ==================== AGREEMENT CONTROLLERS ====================
-
 // Generate agreement from templates
 
 exports.generateAgreement = async (req, res) => {
@@ -301,10 +297,6 @@ exports.generateAgreement = async (req, res) => {
     });
   }
 };
-
-
-
-
 
 
 // Create a new Agreement

@@ -11,24 +11,22 @@ const VenueOwnerPage = () => {
   const [pages, setPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("date");
   const [blockStatus, setBlockStatus] = useState("all");
 
   useEffect(() => {
-    fetchVenueOwners(page, searchTerm, sortBy, blockStatus);
-  }, [page, searchTerm, sortBy, blockStatus]);
+    fetchVenueOwners(page, searchTerm, blockStatus);
+  }, [page, searchTerm, blockStatus]);
 
   const fetchVenueOwners = async (
     currentPage,
     search = "",
-    sort = "date",
     block = "all"
   ) => {
     setLoading(true);
     const token = localStorage.getItem("access_token");
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/venue-owners?page=${currentPage}&limit=10&search=${search}&sort=${sort}&blockStatus=${block}`,
+        `http://localhost:8000/api/venue-owners?page=${currentPage}&limit=10&search=${search}&blockStatus=${block}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -101,11 +99,6 @@ const VenueOwnerPage = () => {
     setPage(1);
   };
 
-  const handleSortChange = (e) => {
-    setSortBy(e.target.value);
-    setPage(1);
-  };
-
   const handleBlockStatusChange = (e) => {
     setBlockStatus(e.target.value);
     setPage(1);
@@ -136,14 +129,6 @@ const VenueOwnerPage = () => {
             <option value="all">All</option>
             <option value="blocked">Blocked</option>
             <option value="unblocked">Unblocked</option>
-          </select>
-          <select
-            value={sortBy}
-            onChange={handleSortChange}
-            className="px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="date">Sort by Date</option>
-            <option value="status">Sort by Status</option>
           </select>
         </div>
 

@@ -42,10 +42,9 @@ async function updateUserProfile(req, res) {
     const userId = req.user.id;
     const { name, contact_number, email } = req.body;
     
-    // Default to the value in the request body (if provided)
     let profile_image = req.body.profile_image;
 
-    // If a file is uploaded, use the file's path instead.
+    
     if (req.file) {
       profile_image = req.file.path; // or use req.file.filename based on your storage setup
     }

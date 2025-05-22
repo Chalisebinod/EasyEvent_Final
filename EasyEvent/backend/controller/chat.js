@@ -11,7 +11,7 @@ const sendMessage = async (req, res) => {
     const sender = req.user.id;
     const { receiver, message } = req.body;
 
-    console.log("reciver and message", receiver)
+    console.log("receiver and message", receiver)
     if (!receiver || !message) {
       return res.status(400).json({ error: "Receiver and message are required." });
     }
@@ -45,8 +45,6 @@ const sendMessage = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
-
 
 const receiveMessage = async (req, res) => {
     try {

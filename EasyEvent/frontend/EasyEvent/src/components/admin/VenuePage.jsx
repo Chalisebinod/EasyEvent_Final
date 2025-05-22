@@ -15,7 +15,7 @@ const VenuePage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortOption, setSortOption] = useState("date");
+  const [blockStatus, setBlockStatus] = useState("all");
 
   // Fetch venues from API
   const fetchVenues = async () => {
@@ -28,7 +28,7 @@ const VenuePage = () => {
           page,
           limit: ITEMS_PER_PAGE,
           search: searchTerm,
-          sort: sortOption,
+          blockStatus: blockStatus,
         },
         headers: {
           Authorization: `Bearer ${token}`,
@@ -47,7 +47,7 @@ const VenuePage = () => {
 
   useEffect(() => {
     fetchVenues();
-  }, [page, searchTerm, sortOption]);
+  }, [page, searchTerm, blockStatus]);
 
   // Handle block/unblock action
   const handleBlockVenue = async (venueId, isBlocked) => {
@@ -107,10 +107,10 @@ const VenuePage = () => {
     setSearchTerm(e.target.value);
     setPage(1);
   };
-  const handleSortChange = (e) => {
-    setSortOption(e.target.value);
+  const handleBlockStatusChange = (e) => {
+    setBlockStatus(e.target.value);
     setPage(1);
-  };
+  }
 
   return (
     <div className="flex">
@@ -128,12 +128,13 @@ const VenuePage = () => {
             className="flex-1 min-w-[220px] px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <select
-            value={sortOption}
-            onChange={handleSortChange}
+            value={blockStatus}
+            onChange={handleBlockStatusChange}
             className="px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="date">Sort by Date</option>
-            <option value="status">Sort by Status</option>
+            <option value="all">All</option>
+            <option value="blocked">Blocked</option>
+            <option value="unblocked">Unblocked</option>
           </select>
         </div>
 
